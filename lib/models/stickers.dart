@@ -3,11 +3,10 @@ part 'stickers.g.dart';
 
 @JsonSerializable()
 class Stickers {
-
   String imagefile;
   List emojis;
 
-  Stickers({this.imagefile,this.emojis});
+  Stickers({this.imagefile, this.emojis});
 
   factory Stickers.fromJson(Map<String, dynamic> json) =>
       _$StickersFromJson(json);
@@ -20,9 +19,8 @@ class Stickers {
   set imageFile(String imagefile) {
     this.imagefile = imagefile;
   }
-  
+
   set emoji(List emojis) {
     this.emojis = emojis;
   }
-
 }
