@@ -21,25 +21,29 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
   bool isLoading, isDownloading = true;
   List<String> downloadList = List<String>();
   List<String> stickerImageList = List<String>();
-  static const MethodChannel stickerMethodChannel = const MethodChannel(
-      'com.moha.whatsapp_stickers_internet/sharedata');
+  static const MethodChannel stickerMethodChannel =
+      const MethodChannel('com.moha.whatsapp_stickers_internet/sharedata');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${widget.stickerPacks.name} - Stickers",style: TextStyle(fontFamily: "JosefinSans",),),
+        title: Text(
+          "${widget.stickerPacks.name} - Stickers",
+          style: TextStyle(
+            fontFamily: "JosefinSans",
+          ),
+        ),
         backgroundColor: Colors.green.shade100,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.info_outline),
-            onPressed: () {
-              showDialog(
-              context: context,
-              builder: (BuildContext context) => _buildPopupDialog(context),
-            );
-            }
-          ),
+              icon: Icon(Icons.info_outline),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => _buildPopupDialog(context),
+                );
+              }),
         ],
       ),
       body: Container(
@@ -58,12 +62,11 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
                       height: 100,
                       width: 100,
                       decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.05),
-                        border: Border.all(
-                          color: Colors.grey.withOpacity(0.1),
+                          color: Colors.grey.withOpacity(0.05),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(0.1),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(20))
-                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Image.network(
                         widget.stickerPacks.trayImageFile,
                         height: 50,
@@ -71,11 +74,15 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20,),
+                      padding: EdgeInsets.only(
+                        left: 20,
+                      ),
                     ),
                     Container(
                       child: Padding(
-                        padding: EdgeInsets.only(top: 15,),
+                        padding: EdgeInsets.only(
+                          top: 15,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -89,14 +96,14 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
                               ),
                             ),
                             Text(
-                          widget.stickerPacks.publisher,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "circe",
-                          ),
-                        ),
+                              widget.stickerPacks.publisher,
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "circe",
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -106,7 +113,7 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
               ),
             ),
             SizedBox(
-              height :5,
+              height: 5,
             ),
             Flexible(
               flex: 8,
@@ -157,10 +164,11 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
                               ? 'Add To WhatsApp'
                               : "Download",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "JosefinSans",),
+                            color: Colors.white,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "JosefinSans",
+                          ),
                         ),
                       ),
                     )),
@@ -310,15 +318,17 @@ class _MyStickerDetailsState extends State<MyStickerDetails> {
 
 Widget _buildPopupDialog(BuildContext context) {
   return new AlertDialog(
-    title: const Text('Notices',
-    style: TextStyle(fontFamily: "JosefinSans"),),
+    title: const Text(
+      'Notices',
+      style: TextStyle(fontFamily: "JosefinSans"),
+    ),
     content: new Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text("Hello",
-        style: TextStyle(fontFamily: "circe",
-        fontWeight: FontWeight.bold),
+        Text(
+          "Hello",
+          style: TextStyle(fontFamily: "circe", fontWeight: FontWeight.bold),
         ),
       ],
     ),
@@ -327,13 +337,14 @@ Widget _buildPopupDialog(BuildContext context) {
         onPressed: () {
           Navigator.of(context).pop();
         },
-        child: Text('OK',
-        style: TextStyle(fontFamily: "JosefinSans"),
+        child: Text(
+          'OK',
+          style: TextStyle(fontFamily: "JosefinSans"),
         ),
         style: TextButton.styleFrom(
           primary: Colors.redAccent,
           backgroundColor: Colors.white,
-          ),
+        ),
       ),
     ],
   );
